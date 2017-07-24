@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bower_components/mui/packages/cdn/css/mui.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+</head>
+<body ng-controller="test">
+<div class="mui-container">
+    <div class="mui-panel">
+        <form class="mui-form">
+            <legend>ToDoList</legend>
+            <div class="mui-textfield mui-textfield--float-label">
+                <input type="text" name="text" ng-model="usrInput"required>
+                <label>what to do?</label>
+            </div>
+            <button class="mui-btn mui-btn--raised mui-btn--primary" ng-click="addTodo()" type="submit">
+                添加
+            </button>
+        </form>
+
+        <table ng-if="todoList[0]" class="mui-table mui-table--bordered">
+            <thead>
+            <tr>
+                <th>未完成</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in todoList">
+                <td>
+                    <em class="mui--text-accent-secondary">{{$index+1}}</em>
+                    <span style="margin-left: 50px;">{{item.text}}</span>
+                </td>
+                <td>
+                    <a href="#" ng-click="doneThis($index)" style="font-size: 22px;color: #64e18b;"><i class="fa fa-check" aria-hidden="true"></i></a>
+                    <a href="#" ng-click="cancelThis($index)" style="font-size: 22px;color: #d94f54;margin-left: 50px;"><i class="fa fa-times" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table ng-if="doneList[0]" class="mui-table mui-table--bordered">
+            <thead>
+            <tr>
+                <th>已完成</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in doneList">
+                <td style="text-decoration: line-through;color: #999;">{{item.text}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div ng-if="doneList[0]||todoList[0]" class="mui-panel">
+            共{{todoList.length+doneList.length}}项任务，已完成{{doneList.length}}项，{{todoList.length}}项未完成！
+        </div>
+    </div>
+</div>
+
+
+<!--js-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/mui/packages/cdn/js/mui.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "todolist",
+  "authors": [
+    "zhengheyang <zhenghe_yang@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "mui": "^0.9.20",
+    "angular": "^1.6.5",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
