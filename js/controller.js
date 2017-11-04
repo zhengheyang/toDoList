@@ -5,11 +5,15 @@ angular.module('todoApp.controller', [])
         $scope.doneList = [];
 
         $scope.addTodo = function () {
-            $scope.todoList.push({
-                text: $scope.usrInput,
-                done: false
-            });
-            $scope.usrInput = '';
+            if(!$scope.usrInput){
+                return;
+            }else {
+                $scope.todoList.push({
+                    text: $scope.usrInput,
+                    done: false
+                });
+                $scope.usrInput = '';
+            }
         };
 
         $scope.doneThis = function (index) {
